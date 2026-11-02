@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="game-container">
+    <header class="game-header">
+        <div>
+            <p class="eyebrow">A little challenge</p>
+            <h1>Guessing Game</h1>
+        </div>
+        <span class="game-icon" aria-hidden="true">?</span>
+    </header>
+
+    <section id="login-panel" class="panel">
+        <h2>Welcome, player</h2>
+        <p>Choose a username to start. Your profile and scores stay in this browser.</p>
+        <form id="login-form">
+            <label for="username-input">Username</label>
+            <div class="login-row">
+                <input id="username-input" type="text" maxlength="24" autocomplete="nickname"
+                       placeholder="e.g. Alex" required>
+                <button id="login-btn" type="submit">Continue</button>
+            </div>
+        </form>
+        <p id="login-message" class="message" role="status" aria-live="polite"></p>
+        <p class="privacy-note">This is a local profile, not a secure account. Anyone using this browser can access it.</p>
+    </section>
+
+    <section id="game-panel" class="panel hidden" aria-live="polite">
+        <div class="player-bar">
+            <p>Playing as <strong id="player-name"></strong></p>
+            <button id="logout-btn" class="text-button" type="button">Switch player</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-label">Games won</span>
+                <strong id="games-won">0</strong>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Best score</span>
+                <strong id="best-score">—</strong>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <p id="instruction-label">Your number range is loading...</p>
+            <form id="guess-form" class="input-section">
+                <label class="visually-hidden" for="guess-input">Your guess</label>
+                <input type="number" id="guess-input" placeholder="Your guess" inputmode="numeric" required>
+                <button id="submit-btn" type="submit">Guess</button>
+            </form>
+            <p id="feedback-label" class="message" role="status" aria-live="polite">Good luck!</p>
+            <p id="counter-label" class="counter-label">Guesses: 0</p>
+            <button id="play-again-btn" class="secondary-button hidden" type="button">Play again</button>
+        </div>
+
+        <section class="history-section" aria-labelledby="history-heading">
+            <div class="section-heading">
+                <h2 id="history-heading">Recent scores</h2>
+                <span id="history-count" class="history-count">0 games</span>
+            </div>
+            <ol id="score-history" class="score-history"></ol>
+            <p id="empty-history" class="empty-history">Win a game and your score will appear here.</p>
+        </section>
+        <p id="storage-message" class="message error-message" role="status" aria-live="polite"></p>
+    </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
